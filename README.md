@@ -1,6 +1,6 @@
 # VSCode ID Generator
 
-A lightweight extension for generating custom IDs in your VSCode editor.
+A lightweight extension for generating easily readable IDs in your VSCode editor.
 
 ## Features
 
@@ -32,6 +32,7 @@ You can customize the ID format through the following settings:
 - `idGenerator.slugLength`: Length of the random slug portion (default: 5)
 - `idGenerator.namespaceLength`: Length of the namespace portion (default: 3)
 - `idGenerator.incrementorLength`: Length of the incrementor portion (default: 3)
+- `idGenerator.includeQuotes`: Whether to include quotation marks around the generated ID (default: false)
 
 ## Installation
 
@@ -42,24 +43,10 @@ You can customize the ID format through the following settings:
 
 ## Building from Source
 
-You have two options to build the extension:
-
-### Option 1: Using npm and vsce (locally installed)
-
 1. Clone this repository
 2. Run `npm install` to install development dependencies
 3. Run `npm run package` to create the `.vsix` file
 4. Install the extension as described above
-
-### Option 2: Zero Dependencies (Node.js only)
-
-If you prefer not to install any npm dependencies:
-
-1. Clone this repository
-2. Run `node build.js` to create the `.vsix` file using the built-in script
-3. Install the extension as described above
-
-The zero-dependency method uses only native Node.js functionality and built-in OS zip capabilities.
 
 ## No Dependencies
 

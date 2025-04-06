@@ -56,6 +56,11 @@
           "type": "number",
           "default": 3,
           "description": "Length of the incrementor (000) portion of the ID"
+        },
+        "idGenerator.includeQuotes": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to include quotation marks around the generated ID"
         }
       }
     }

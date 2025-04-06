@@ -132,13 +132,14 @@ function generateRandomSlug(length = 5) {
 }
 
 /**
- * Generate an ID in the format XXXXX-AAA-000
+ * Generate an ID in the format XXXXX-AAA-000 or "XXXXX-AAA-000"
  * @returns {string} Generated ID
  */
 function generateId() {
   const config = vscode.workspace.getConfiguration("idGenerator");
   const slugLength = config.get("slugLength", 5);
   const incrementorLength = config.get("incrementorLength", 3);
+  const includeQuotes = config.get("includeQuotes", false);
 
   // Generate random slug
   const slug = generateRandomSlug(slugLength);
@@ -148,7 +149,9 @@ function generateId() {
     .toString()
     .padStart(incrementorLength, "0");
 
-  return `${slug}-${currentNamespace}-${increment}`;
+  // Create the ID with or without quotes
+  const baseId = `${slug}-${currentNamespace}-${increment}`;
+  return includeQuotes ? `"${baseId}"` : baseId;
 }
 
 function deactivate() {}
