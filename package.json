@@ -62,7 +62,7 @@
   },
   "scripts": {
     "vscode:prepublish": "echo Preparing for publish",
-    "package": "npx @vscode/vsce package -o dist/vscode-id-generator.vsix"
+    "package": "npx @vscode/vsce package -o vscode-id-generator.vsix"
   },
   "devDependencies": {
     "@vscode/vsce": "^3.3.2"
