@@ -1,0 +1,66 @@
+{
+  "name": "vscode-id-generator",
+  "displayName": "ID Generator",
+  "description": "Generate custom IDs in the format XXXXX-AAA-000",
+  "version": "0.1.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "idGenerator.generateId",
+        "title": "Generate ID"
+      },
+      {
+        "command": "idGenerator.resetIncrementer",
+        "title": "Reset ID Incrementer"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "idGenerator.generateId",
+        "key": "ctrl+i",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "idGenerator.resetIncrementer",
+        "key": "ctrl+shift+i",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "ID Generator",
+      "properties": {
+        "idGenerator.slugLength": {
+          "type": "number",
+          "default": 5,
+          "description": "Length of the random slug portion of the ID"
+        },
+        "idGenerator.namespaceLength": {
+          "type": "number",
+          "default": 3,
+          "description": "Length of the namespace (AAA) portion of the ID"
+        },
+        "idGenerator.incrementorLength": {
+          "type": "number",
+          "default": 3,
+          "description": "Length of the incrementor (000) portion of the ID"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "echo Preparing for publish",
+    "package": "node build.js"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.3.2"
+  }
+}
